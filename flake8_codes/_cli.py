@@ -1,4 +1,5 @@
 import sys
+from argparse import ArgumentParser
 from typing import Iterator, List, NamedTuple, NoReturn, TextIO
 
 from flake8.main.application import Application
@@ -34,14 +35,14 @@ def get_codes(lookup_name: str) -> Iterator[Code]:
 
         is_prefix = lookup_name.startswith(tuple(plugin.codes))
         is_name = normalize(lookup_name) == normalize(plugin.name)
-        if not is_name and not is_prefix:
+        if lookup_name and not is_name and not is_prefix:
             continue
 
         try:
             codes = extract(plugin.name)
         except ImportError:
             continue
-        for code in codes:
+        for code in sorted(codes):
             if is_prefix and not code.startswith(lookup_name):
                 continue
             yield Code(
@@ -55,12 +56,17 @@ def print_codes(lookup_name: str, stream: TextIO) -> int:
     count = 0
     for code in get_codes(lookup_name):
         count += 1
-        print(TEMPLATE.format(c=code))
+        print(TEMPLATE.format(c=code), file=stream)
     return count
 
 
 def main(argv: List[str], stream: TextIO) -> int:
-    count = print_codes(argv[0], stream=stream)
+    parser = ArgumentParser()
+    parser.add_argument('lookup_name', nargs='?', help='plugin name, code, or prefix')
+    args = parser.parse_args(argv)
+    lookup_name = args.lookup_name or ''
+
+    count = print_codes(lookup_name, stream=stream)
     return int(count == 0)
 
 
