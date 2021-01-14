@@ -26,6 +26,7 @@ import_heading_localfolder = "app"
 
 [tool.flit.metadata]
 module = "flake8_codes"
+dist-name = "flake8-codes"
 license = "MIT"
 author = "Gram"
 author-email = "gram@orsinium.dev"
