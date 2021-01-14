@@ -1,7 +1,8 @@
 # built-in
-from typing import Dict
 from importlib import import_module
+from typing import Dict
 
+# app
 from ._default import extract_default
 from ._registry import registry
 

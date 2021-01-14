@@ -86,6 +86,6 @@ tasks:
       - task: flit:install
         vars:
           ENV: "{{.ISORT_ENV}}"
-          EXTRA: plugins,dev
+          EXTRA: dev
     cmds:
       - "{{.ISORT_ENV}}/bin/isort ."

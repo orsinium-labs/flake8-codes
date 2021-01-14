@@ -2,10 +2,12 @@
 import pytest
 
 # project
-from ._constants import KNOWN_PLUGINS
 from flake8_codes._codes import extract
 from flake8_codes._codes._default import extract_default
 from flake8_codes._codes._registry import registry
+
+# app
+from ._constants import KNOWN_PLUGINS
 
 
 @pytest.mark.parametrize('plugin_name', KNOWN_PLUGINS)

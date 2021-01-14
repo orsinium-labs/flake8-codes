@@ -1,5 +1,7 @@
 # built-in
 from typing import Dict
+
+# app
 from ._registry import registry
 
 
@@ -24,6 +26,7 @@ def extract_flake8_import_order() -> Dict[str, str]:
 
 @registry.add
 def extract_flake8_black() -> Dict[str, str]:
+    # external
     from flake8_black import black_prefix
 
     return {

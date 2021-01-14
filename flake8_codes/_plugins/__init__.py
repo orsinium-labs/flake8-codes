@@ -1,4 +1,5 @@
-from ._discover import get_installed, Plugin
+# app
+from ._discover import Plugin, get_installed
 
 
 __all__ = ['get_installed', 'Plugin']

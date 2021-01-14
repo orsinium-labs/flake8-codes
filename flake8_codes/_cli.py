@@ -1,11 +1,14 @@
+# built-in
 import sys
 from argparse import ArgumentParser
 from typing import Iterator, List, NamedTuple, NoReturn, TextIO
 
+# external
 from flake8.main.application import Application
 
+# app
 from ._codes import extract
-from ._plugins import get_installed, Plugin
+from ._plugins import Plugin, get_installed
 
 
 TEMPLATE = '{c.plugin.name:20} | {c.code:8} | {c.message}'
