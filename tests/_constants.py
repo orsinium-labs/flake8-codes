@@ -1,0 +1,66 @@
+KNOWN_PLUGINS = (
+    'dlint',
+    'flake8-2020',
+    'flake8-alfred',
+    'flake8-annotations-complexity',
+    # 'flake8-bandit',
+    'flake8-black',
+    'flake8-broken-line',
+    'flake8-builtins',
+    'flake8-coding',
+    'flake8-cognitive-complexity',
+    'flake8-comprehensions',
+    'flake8-debugger',
+    'flake8-docstrings',
+    'flake8-eradicate',
+    'flake8-executable',
+    'flake8-expression-complexity',
+    'flake8-fixme',
+    'flake8-functions',
+    'flake8-logging-format',
+    'flake8-mutable',
+    'flake8-mypy',
+    'flake8-pep3101',
+    'flake8-pie',
+    'flake8-print',
+    'flake8-printf-formatting',
+    'flake8-pyi',
+    'flake8-quotes',
+    'flake8-requirements',
+    'flake8-rst-docstrings',
+    'flake8-spellcheck',
+    'flake8-sql',
+    'flake8-strict',
+    'flake8-string-format',
+    'flake8-todo',
+    'flake8-use-fstring',
+    'flake8-variables-names',
+
+    # framework-specific
+    'flake8-django',
+    'flake8-scrapy',
+    'pandas-vet',
+
+    # tests
+    'flake8-aaa',
+    'flake8-mock',
+    'flake8-pytest',
+    'flake8-pytest-style',
+
+    # PyCQA
+    'flake8-bugbear',
+    'flake8-commas',
+    'mccabe',
+    'pep8-naming',
+
+    # imports
+    'flake8-future-import',
+    'flake8-import-order',
+    'flake8-isort',
+    'flake8-absolute-import',
+    'flake8-tidy-imports',
+
+    # built-in in flake8
+    'pycodestyle',
+    'pyflakes',
+)

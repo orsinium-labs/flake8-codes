@@ -1,10 +1,12 @@
 # built-in
 import re
+from contextlib import suppress
 from importlib import import_module
 from pathlib import Path
 from typing import Dict
 
 from ._registry import registry
+from ._default import extract_default
 
 
 @registry.add
@@ -77,6 +79,11 @@ def extract_flake8_pytest_style() -> Dict[str, str]:
 @registry.add
 def extract_flake8_annotations_complexity() -> Dict[str, str]:
     from flake8_annotations_complexity.checker import AnnotationsComplexityChecker
+
+    with suppress(ImportError):
+        codes = extract_default('flake8_annotations_complexity.ast_helpers')
+        if codes:
+            return codes
 
     code, message = AnnotationsComplexityChecker._error_message_template.split(' ', maxsplit=1)
     return {code: message}
