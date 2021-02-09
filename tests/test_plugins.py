@@ -23,4 +23,4 @@ def test_smoke_prefixes(plugin_name):
     codes = extract(plugin_name)
     for code in codes:
         print(plugin_name, code, plugin.codes)
-        assert code.startswith(tuple(plugin.codes))
+        assert code.startswith(plugin.codes)
