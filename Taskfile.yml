@@ -79,8 +79,6 @@ tasks:
       - "{{.MYPY_ENV}}/bin/mypy --ignore-missing-imports --allow-redefinition deal/"
 
   pytest:run:
-    sources:
-      - deal/
     deps:
       - task: flit:install
         vars:
