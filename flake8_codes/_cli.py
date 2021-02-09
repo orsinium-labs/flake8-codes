@@ -3,9 +3,6 @@ import sys
 from argparse import ArgumentParser
 from typing import Iterator, List, NamedTuple, NoReturn, TextIO
 
-# external
-from flake8.main.application import Application
-
 # app
 from ._codes import extract
 from ._plugins import Plugin, get_installed
@@ -25,8 +22,7 @@ def normalize(name: str) -> str:
 
 
 def get_codes(lookup_name: str) -> Iterator[Code]:
-    app = Application()
-    plugins = sorted(get_installed(app=app), key=lambda p: p.name)
+    plugins = sorted(get_installed(), key=lambda p: p.name)
     if not plugins:
         return
 

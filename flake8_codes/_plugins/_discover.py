@@ -1,18 +1,14 @@
 # built-in
 import re
 from collections import defaultdict
-from typing import DefaultDict, Dict, Iterable, Iterator, List, NamedTuple, Tuple
+from typing import DefaultDict, Iterable, Iterator, List, NamedTuple, Tuple
 
-from flake8.main.application import Application
+# external
 from flake8.plugins.manager import Plugin as Flake8Plugin
+from flake8._compat import importlib_metadata
 
 # app
 from ._plugin import get_plugin_name
-
-try:
-    import importlib.metadata as importlib_metadata
-except ImportError:
-    import importlib_metadata  # type: ignore
 
 
 REX_CODE = re.compile(r'^[A-Z]{1,5}[0-9]{0,5}$')
@@ -38,7 +34,7 @@ class Plugin(NamedTuple):
     version: str
 
 
-def get_installed(app: Application) -> Iterator[Plugin]:
+def get_installed() -> Iterator[Plugin]:
     plugins_codes: DefaultDict[str, List[str]]
     plugins_codes = defaultdict(list)
     versions = dict()

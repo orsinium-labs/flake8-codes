@@ -69,14 +69,14 @@ tasks:
 
   mypy:run:
     sources:
-      - deal/**/*.py
+      - flake8_codes/**/*.py
     deps:
       - task: flit:install
         vars:
           ENV: "{{.MYPY_ENV}}"
           EXTRA: dev
     cmds:
-      - "{{.MYPY_ENV}}/bin/mypy --ignore-missing-imports --allow-redefinition deal/"
+      - "{{.MYPY_ENV}}/bin/mypy --ignore-missing-imports --allow-redefinition flake8_codes/"
 
   pytest:run:
     deps:
