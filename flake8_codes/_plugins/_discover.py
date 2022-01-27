@@ -35,6 +35,8 @@ class Plugin(NamedTuple):
 
 
 def get_installed() -> Iterator[Plugin]:
+    """Get all installed plugins.
+    """
     plugins_codes: DefaultDict[str, List[str]]
     plugins_codes = defaultdict(list)
     versions = dict()

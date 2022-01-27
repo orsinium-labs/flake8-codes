@@ -23,7 +23,9 @@ def _register_all():
 _register_all()
 
 
-def extract(name) -> Dict[str, str]:
+def extract(name: str) -> Dict[str, str]:
+    """Extract error codes from the plugin by name.
+    """
     name = name.replace('-', '_')
     name = ALIASES.get(name, name)
 

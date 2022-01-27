@@ -5,8 +5,7 @@ from unittest.mock import patch
 import pytest
 
 # project
-from flake8_codes._codes import extract
-from flake8_codes._plugins import get_installed
+from flake8_codes import extract, get_installed
 
 # app
 from ._constants import KNOWN_PLUGINS

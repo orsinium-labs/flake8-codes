@@ -2,7 +2,7 @@
 import pytest
 
 # project
-from flake8_codes._codes import extract
+from flake8_codes import extract
 from flake8_codes._codes._default import extract_default
 from flake8_codes._codes._registry import registry
 
