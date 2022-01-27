@@ -289,6 +289,14 @@ def extract_flake8_pytest() -> Dict[str, str]:
 
 
 @registry.add
+def extract_flake8_length() -> Dict[str, str]:
+    # external
+    from flake8_length._parser import Message
+
+    return {message.name: message.value for message in Message}
+
+
+@registry.add
 def extract_wemake_python_styleguide() -> Dict[str, str]:
     # external
     from wemake_python_styleguide import violations

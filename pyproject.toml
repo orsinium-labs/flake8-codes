@@ -74,6 +74,7 @@ plugins = [
     "flake8-future-import",
     "flake8-import-order",
     "flake8-isort",
+    "flake8-length",
     "flake8-logging-format",
     "flake8-mock",
     "flake8-mutable",

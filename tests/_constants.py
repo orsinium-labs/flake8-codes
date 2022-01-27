@@ -17,6 +17,7 @@ KNOWN_PLUGINS = (
     'flake8-expression-complexity',
     'flake8-fixme',
     'flake8-functions',
+    'flake8-length',
     'flake8-logging-format',
     'flake8-mutable',
     'flake8-mypy',
