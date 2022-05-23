@@ -2,12 +2,17 @@
 import pytest
 
 # project
-from flake8_codes import extract
+from flake8_codes import extract, get_installed
 from flake8_codes._codes._default import extract_default
 from flake8_codes._codes._registry import registry
 
 # app
 from ._constants import KNOWN_PLUGINS
+
+
+def test_can_extract_all_installed():
+    for plugin in get_installed():
+        assert extract(plugin.name)
 
 
 @pytest.mark.parametrize('plugin_name', KNOWN_PLUGINS)

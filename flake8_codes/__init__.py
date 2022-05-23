@@ -6,5 +6,5 @@ from ._codes import extract
 from ._plugins import Plugin, get_installed
 
 
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 __all__ = ['extract', 'Plugin', 'get_installed', '__version__']

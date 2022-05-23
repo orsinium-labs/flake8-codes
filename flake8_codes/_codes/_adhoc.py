@@ -265,6 +265,24 @@ def extract_flake8_pie() -> Dict[str, str]:
 
 
 @registry.add
+def extract_darglint() -> Dict[str, str]:
+    # external
+    import darglint.errors
+
+    codes = dict()
+    for obj_name in dir(darglint.errors):
+        cls = getattr(darglint.errors, obj_name)
+        if not isinstance(cls, type):
+            continue
+        if not issubclass(cls, darglint.errors.DarglintError):
+            continue
+        if cls.error_code is None:
+            continue
+        codes[cls.error_code] = cls.description
+    return codes
+
+
+@registry.add
 def extract_flake8_docstrings() -> Dict[str, str]:
     # external
     from pydocstyle.violations import ErrorRegistry
