@@ -31,7 +31,6 @@ KNOWN_PLUGINS = (
     'flake8-rst-docstrings',
     'flake8-spellcheck',
     'flake8-sql',
-    'flake8-strict',
     'flake8-string-format',
     'flake8-todo',
     'flake8-use-fstring',
