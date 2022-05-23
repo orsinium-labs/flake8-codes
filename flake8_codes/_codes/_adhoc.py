@@ -248,6 +248,23 @@ def extract_flake8_strict() -> Dict[str, str]:
 
 
 @registry.add
+def extract_flake8_pie() -> Dict[str, str]:
+    # external
+    import flake8_pie
+
+    codes = dict()
+    rex = re.compile(r'"(?P<code>PIE[0-9]{3,4}): (?P<message>.+?)"')
+    for path in Path(flake8_pie.__file__).parent.iterdir():
+        if not path.name.startswith('pie'):
+            continue
+        text = path.read_text()
+        matches = rex.finditer(text)
+        match = list(matches)[-1]
+        codes[match.group('code')] = match.group('message')
+    return codes
+
+
+@registry.add
 def extract_flake8_docstrings() -> Dict[str, str]:
     # external
     from pydocstyle.violations import ErrorRegistry
